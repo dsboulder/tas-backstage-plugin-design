@@ -9,6 +9,8 @@ spec:
   lifecycle: production
   owner: storefront-team
   system: ecommerce-site
+  consumesApi:
+  - storefront-inventory-codebase
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -20,6 +22,8 @@ spec:
   lifecycle: production
   owner: inventory-team
   system: ecommerce-site
+  providesApi:
+  - storefront-inventory-codebase
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
@@ -28,3 +32,5 @@ metadata:
   description: E-Commerce site
 spec:
   owner: ecommerce-eng-team
+
+### TONS of User entites representing your corp directory...

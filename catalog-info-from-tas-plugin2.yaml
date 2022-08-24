@@ -2,10 +2,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: storefront-ui
-  description: A UI for browsing products and making purchases
+  name: storefront-ui # name of the running TAS app
+  description: Running TAS app of "A UI for browsing products and making purchases" # this is copied from the codebase it's connected to?
 spec:
-  type: website # TAS can't always tell if something is a website or service
+  type: website # TAS can't always tell if something is a website or service, we can make one default (or guess maybe sometimes?)
   lifecycle: production # inherited from the foundation where it's running?
   owner: space-storefront-ui-developers # dynamically available from the TAS foundation
   system: ecommerce-site # inherited from the codebase entity
@@ -24,4 +24,25 @@ spec:
   system: ecommerce-site
   dependsOn:
     - component:storefront-inventory-codebase
-    - resource:inventory-mysql-db
+    - resource:inventory-mysql-db # a TAS brokered service that was bound at runtime
+    - resource:payment-processor # a TAS user provided service to something external that the app uses, TAS shouldn't generate a "Resource" entity for this
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: inventory-mysql-db
+  description: Instance of mysql large plan in space ecommerce-inventory 
+spec:
+  owner: space-storefront-ui-developers
+  type: mysql-database # knowing a stronger type like "database" involves categorizing various service broker types
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: space-storefront-ui-developers
+  description: SpaceDevelopers+ in space blah
+spec:
+  owner: prod-foundation1
+  members: # email addresses of space devs from TAS
+  - stevensonda_vmware.com # these are references to external entites
+  - gcobb_vmware.com
