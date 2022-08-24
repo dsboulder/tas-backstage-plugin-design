@@ -3,12 +3,11 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: storefront-ui
-  namespace: prod-foundation1
   description: A UI for browsing products and making purchases
 spec:
   type: website # TAS can't always tell if something is a website or service
   lifecycle: production # inherited from the foundation where it's running?
-  owner: prod-foundation1/space-storefront-ui-developers # dynamically available from the TAS foundation
+  owner: space-storefront-ui-developers # dynamically available from the TAS foundation
   system: ecommerce-site # inherited from the codebase entity
   dependsOn:
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
@@ -17,13 +16,12 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: storefront-inventory
-  namespace: prod-foundation1
   description: Backend service for tracking inventory and processing payment 
 spec:
   type: service
   lifecycle: production
-  owner: prod-foundation1/space-storefront-ui-developers
+  owner: space-storefront-ui-developers
   system: ecommerce-site
   dependsOn:
     - component:storefront-ui-codebase
-    - resource:prod-foundation1/inventory-mysql-db
+    - resource:inventory-mysql-db
