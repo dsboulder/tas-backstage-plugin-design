@@ -9,3 +9,22 @@ spec:
   lifecycle: production
   owner: storefront-team
   system: ecommerce-site
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storefront-inventory-codebase
+  description: A UI for browsing products and making purchases
+spec:
+  type: library
+  lifecycle: production
+  owner: inventory-team
+  system: ecommerce-site
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ecommerce-site
+  description: E-Commerce site
+spec:
+  owner: ecommerce-eng-team

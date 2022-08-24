@@ -23,5 +23,5 @@ spec:
   owner: space-storefront-ui-developers
   system: ecommerce-site
   dependsOn:
-    - component:storefront-ui-codebase
+    - component:storefront-inventory-codebase
     - resource:inventory-mysql-db
