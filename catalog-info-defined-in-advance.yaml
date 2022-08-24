@@ -1,0 +1,11 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storefront-ui-codebase
+  description: A UI for browsing products and making purchases
+spec:
+  type: library
+  lifecycle: production
+  owner: storefront-team
+  system: ecommerce-site
