@@ -11,7 +11,7 @@ spec:
   owner: prod-foundation1/space-storefront-ui-developers # dynamically available from the TAS foundation
   system: ecommerce-site # inherited from the codebase entity
   dependsOn:
-    - storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
+    - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -25,4 +25,5 @@ spec:
   owner: prod-foundation1/space-storefront-ui-developers
   system: ecommerce-site
   dependsOn:
-    - storefront-ui-codebase
+    - component:storefront-ui-codebase
+    - resource:prod-foundation1/inventory-mysql-db
