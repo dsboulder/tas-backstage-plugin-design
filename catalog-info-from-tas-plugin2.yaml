@@ -2,21 +2,29 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: storefront-ui # name of the running TAS app
+  name: storefront-ui-3781ae # name of the running TAS app, but uniqueify? 
   description: Running TAS app of "A UI for browsing products and making purchases" # this is copied from the codebase it's connected to?
+  links:
+    - url: https://apps.sys.domain/apps/237821287237823782
+      title: AppsManager
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://storefront.apps.domain
+      title: Route
+      icon: web
 spec:
   type: website # TAS can't always tell if something is a website or service, we can make one default (or guess maybe sometimes?)
   lifecycle: production # inherited from the foundation where it's running?
   owner: space-storefront-ui # dynamically available from the TAS foundation
   system: space-storefront-ui # group everything in the space as vizualizable?
   dependsOn:
-    - component:storefront-inventory # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking?
+    - component:storefront-inventory-5737cd # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking? We can also use codebase dependencies
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: storefront-inventory
+  name: storefront-inventory-5737cd
   description: Backend service for tracking inventory and processing payment 
 spec:
   type: service
@@ -48,9 +56,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: space-storefront-ui
-  description: SpaceDevelopers+ in space blah
+  description: SpaceDevelopers+ in space storefront-ui
 spec:
-  type: app-operators
+  type: app-operators # team is the other option that makes sense here, but it's a strong word for a group of spacedev+ folks
   children: []
   members: # email addresses of space devs from TAS
   - stevensonda_vmware.com # these are references to external entites
