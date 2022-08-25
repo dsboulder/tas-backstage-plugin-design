@@ -10,6 +10,7 @@ spec:
   owner: space-storefront-ui-developers # dynamically available from the TAS foundation
   system: ecommerce-site # inherited from the codebase entity
   dependsOn:
+    - component:storefront-inventory # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking?
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
 apiVersion: backstage.io/v1alpha1
@@ -43,6 +44,7 @@ metadata:
   description: SpaceDevelopers+ in space blah
 spec:
   owner: prod-foundation1
+  type: team
   members: # email addresses of space devs from TAS
   - stevensonda_vmware.com # these are references to external entites
   - gcobb_vmware.com
