@@ -8,7 +8,7 @@ spec:
   type: website # TAS can't always tell if something is a website or service, we can make one default (or guess maybe sometimes?)
   lifecycle: production # inherited from the foundation where it's running?
   owner: space-storefront-ui # dynamically available from the TAS foundation
-  system: ecommerce-site # inherited from the codebase entity
+  system: space-storefront-ui # group everything in the space as vizualizable?
   dependsOn:
     - component:storefront-inventory # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking?
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
@@ -22,7 +22,7 @@ spec:
   type: service
   lifecycle: production
   owner: space-storefront-ui
-  system: ecommerce-site
+  system: space-storefront-ui
   dependsOn:
     - component:storefront-inventory-codebase
     - resource:inventory-mysql-db # a TAS brokered service that was bound at runtime
@@ -36,6 +36,13 @@ metadata:
 spec:
   owner: space-storefront-ui
   type: mysql-database # knowing a stronger type like "database" involves categorizing various service broker types
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: space-storefront-ui
+spec:
+  owner: space-storefront-ui
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Group
@@ -57,6 +64,6 @@ metadata:
 spec:
   type: organization-management
   children:
-  - space-storefront-ui-developers
+  - space-storefront-ui
   members: # email addresses of org managers from TAS
   - hrajagopal_vmware.com # these are references to external entites
