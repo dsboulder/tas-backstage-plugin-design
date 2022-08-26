@@ -1,5 +1,5 @@
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: tas.vmware.com/v1alpha1
 kind: App
 metadata:
   name: storefront-ui-3781ae # name of the running TAS app, but uniqueify? 
@@ -21,7 +21,7 @@ spec:
     - app:storefront-inventory-5737cd # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking? We can also use codebase dependencies
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: tas.vmware.com/v1alpha1
 kind: App
 metadata:
   name: storefront-inventory-5737cd
