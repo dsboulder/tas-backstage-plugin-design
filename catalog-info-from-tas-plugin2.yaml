@@ -18,7 +18,7 @@ spec:
   owner: space-storefront-ui # dynamically available from the TAS foundation
   system: space-storefront-ui # group everything in the space as vizualizable?
   dependsOn:
-    - app:storefront-inventory-5737cd # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking? We can also use codebase dependencies
+    - tanzuapp:storefront-inventory-5737cd # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking? We can also use codebase dependencies
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
 apiVersion: tas.vmware.com/v1alpha1
