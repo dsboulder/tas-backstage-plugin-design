@@ -19,6 +19,7 @@ spec:
   system: space-storefront-ui # group everything in the space as vizualizable?
   dependsOn:
     - tanzuapp:storefront-inventory-5737cd # NOT SURE exactly how we can know that the UI app depends on the inventory service app, SCS?, C2C networking? We can also use codebase dependencies
+  instanceOf:
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
 apiVersion: tas.vmware.com/v1alpha1
@@ -32,9 +33,10 @@ spec:
   owner: space-storefront-ui
   system: space-storefront-ui
   dependsOn:
-    - component:storefront-inventory-codebase
     - resource:inventory-mysql-db # a TAS brokered service that was bound at runtime
     - resource:payment-processor # a TAS user provided service to something external that the app uses, TAS shouldn't generate a "Resource" entity for this
+  instanceOf:
+    - component:storefront-inventory-codebase
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
