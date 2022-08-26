@@ -1,6 +1,6 @@
 ---
 apiVersion: tas.vmware.com/v1alpha1
-kind: App
+kind: TanzuApp
 metadata:
   name: storefront-ui-3781ae # name of the running TAS app, but uniqueify? 
   description: Running TAS app of "A UI for browsing products and making purchases" # this is copied from the codebase it's connected to?
@@ -22,7 +22,7 @@ spec:
     - component:storefront-ui-codebase # reference to the codebase entity. when "cf push" was run, this name was given in a label to "link" the running app to this pre-defined codebase
 ---
 apiVersion: tas.vmware.com/v1alpha1
-kind: App
+kind: TanzuApp
 metadata:
   name: storefront-inventory-5737cd
   description: Backend service for tracking inventory and processing payment 
