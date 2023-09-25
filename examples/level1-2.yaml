@@ -1,0 +1,14 @@
+kind: Fragment
+apiVersion: 'entity.accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: level1-2
+spec:
+  accelerator:
+    options:
+      - name: shouldNotShowUp
+        dataType: boolean
+        defaultValue: true
+    types:
+      - name: ShouldNotBeImported
+        struct:
+          - name: someOption

@@ -1,0 +1,11 @@
+kind: Accelerator
+apiVersion: 'entity.accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: importing
+spec:
+  accelerator:
+    imports:
+      - name: imported
+        exposeTypes:
+          - name: SomeType
+            as: Renamed

@@ -1,0 +1,8 @@
+kind: Fragment
+apiVersion: 'entity.accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: level1-3
+spec:
+  accelerator:
+    options:
+      - name: dependsOnChanges

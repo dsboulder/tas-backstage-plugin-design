@@ -1,0 +1,29 @@
+kind: Fragment
+apiVersion: 'entity.accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: level1
+spec:
+  accelerator:
+    options:
+      - name: level1Option
+        dataType: boolean
+        defaultValue: true
+      - name: wontBeOverridden
+        defaultValue: definedInLevel1
+    imports:
+      - name: level2
+        expose:
+          - name: anotherLevel2Option
+            as: level2OptionBis
+          - name: '*'
+        exposeTypes:
+          - name: WillBeRenamed
+            as: Renamed
+          - name: '*'
+    types:
+      - name: Level1Type
+        struct:
+          - name: someOption
+      - name: WontBeOverridden
+        struct:
+          - name: someOption

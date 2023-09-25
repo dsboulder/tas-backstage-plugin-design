@@ -1,0 +1,19 @@
+kind: Fragment
+apiVersion: 'entity.accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: level2
+spec:
+  accelerator:
+    options:
+      - name: level2Option
+        dataType: number
+        defaultValue: 42
+      - name: anotherLevel2Option
+        defaultValue: definedInLevel2
+    types:
+      - name: Level2Type
+        struct:
+          - name: someOption
+      - name: WillBeRenamed
+        struct:
+          - name: someOption

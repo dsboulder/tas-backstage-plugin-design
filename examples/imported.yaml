@@ -1,0 +1,15 @@
+kind: Fragment
+apiVersion: 'accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: imported
+spec:
+  accelerator:
+    options:
+      - name: someOption
+        dataType: SomeType
+      - name: someArrayOption
+        dataType: [SomeType]
+    types:
+      - name: SomeType
+        struct:
+          - name: myField
