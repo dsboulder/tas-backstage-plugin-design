@@ -1,0 +1,29 @@
+kind: Accelerator
+apiVersion: 'entity.accelerator.apps.tanzu.vmware.com/v1alpha1'
+metadata:
+  name: top-level
+spec:
+  accelerator:
+    options:
+      - name: topLevelOption
+      - name: wontBeOverridden
+        defaultValue: definedInTopLevel
+    imports:
+      - name: level1
+      - name: level1-2
+        exposeTypes: [] # Prevents the implicit expositions
+        expose: [] # ditto
+      - name: level1-3
+        expose:
+          - name: dependsOnChanges
+            dependsOn:
+              name: topLevelOption
+              value: 'test'
+    types:
+      - name: TypeFromTopLevel
+        struct:
+          - name: myOption
+      - name: WontBeOverridden
+        struct:
+          - name: differentOption
+          - name: anotherOne
